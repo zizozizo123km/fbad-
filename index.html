@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>إنشاء API Key</title>
+</head>
+<body>
+  <h2>🔑 إنشاء API جديد</h2>
+  <button onclick="generateKey()">إنشاء مفتاح</button>
+  <p id="result"></p>
+
+  <script>
+    function generateKey() {
+      const token = "sk_" + Math.random().toString(36).substring(2,12);
+      document.getElementById("result").innerHTML = `
+        <b>API Endpoint:</b> https://nacerob.ct.ws/api.php <br>
+        <b>API Token:</b> ${token}
+      `;
+      // 👈 هنا ممكن تبعت التوكن لـPHP وتخزنه في DB
+    }
+  </script>
+</body>
+</html>
