@@ -1,23 +1,281 @@
-<!DOCTYPE html>
-<html lang="ar">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>إنشاء API Key</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>عيد ميلاد سعيد يا خيرة — من هاجر</title>
+  <style>
+    :root{
+      --bg1:#0f1020; --bg2:#1a0f2f; --accent:#ff4ecd; --accent2:#7cf3ff; --gold:#ffd166;
+      --card:#0b0d17; --soft:#ffffff22; --text:#f6f7fb; --muted:#cbd5e1;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Kufi Arabic", "Tajawal", Arial, sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 700px at 20% 10%, #27123f, transparent 60%),
+                  radial-gradient(900px 600px at 80% 10%, #132c4f, transparent 60%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }/* Floating balloons */
+.balloon{position:fixed; bottom:-10vh; width:24px; height:32px; border-radius:50% 50% 50% 50%/55% 55% 45% 45%;
+  background:var(--accent); box-shadow:0 10px 25px #0006; animation:floatUp 14s linear infinite; opacity:.85}
+.balloon:after{content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:-14px; width:2px; height:18px; background:#fff7;}
+@keyframes floatUp{from{transform:translateY(0) rotate(5deg)} to{transform:translateY(-120vh) rotate(-15deg)}}
+
+header{
+  position:relative; padding:80px 20px 40px; text-align:center;
+}
+.title{
+  font-size:clamp(28px, 6vw, 64px); line-height:1.1; font-weight:800;
+  letter-spacing:1px; margin:0 auto; max-width:900px;
+  background: conic-gradient(from 10deg, var(--accent), var(--accent2), #ffd6e7, var(--gold), var(--accent));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter: drop-shadow(0 0 12px #ff4ecd40) drop-shadow(0 0 30px #7cf3ff35);
+}
+.subtitle{margin:14px auto 0; font-size:clamp(16px,2.2vw,22px); color:var(--muted)}
+
+.cta{
+  margin:32px auto 0; display:inline-flex; align-items:center; gap:10px; padding:14px 22px; font-weight:700; font-size:18px;
+  border:none; color:#0a0a0a; background: linear-gradient(135deg, var(--gold), #ff88e8);
+  border-radius:999px; cursor:pointer; box-shadow:0 10px 30px #0008, inset 0 2px 8px #ffffff70; transition:transform .15s ease, box-shadow .2s ease;
+}
+.cta:hover{transform:translateY(-2px) scale(1.02)}
+.cta:active{transform:translateY(1px) scale(.99)}
+
+/* Gift card */
+.wrap{display:grid; place-items:center; padding:20px}
+.card{
+  position:relative; width:min(100%, 980px); margin:40px auto; border-radius:28px; padding:28px; overflow:hidden;
+  background:linear-gradient(180deg, #0e1224cc, #090b17ee);
+  box-shadow:0 20px 60px #0009, inset 0 0 0 1px #ffffff10;
+}
+.card:before{content:""; position:absolute; inset:-2px; border-radius:30px; padding:2px; background:linear-gradient(135deg, #ffffff10, #ff4ecd55, #7cf3ff55);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+
+.flex{display:flex; gap:22px; flex-wrap:wrap; align-items:center; justify-content:center}
+.col{flex:1 1 300px}
+
+.gift3d{
+  --size: 220px; width:var(--size); height:var(--size); perspective:1000px; margin-inline:auto; cursor:pointer;
+}
+.cube{position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.face{position:absolute; inset:0; background:repeating-linear-gradient(90deg, #6f2bff 0 18px, #ff4ecd 18px 36px); box-shadow:inset 0 0 40px #0006}
+.top{transform: rotateX(90deg) translateZ(calc(var(--size)/2)); transform-origin:50% 50%; background:repeating-linear-gradient(0deg, #ff4ecd 0 18px, #6f2bff 18px 36px)}
+.bottom{transform: rotateX(-90deg) translateZ(calc(var(--size)/2))}
+.front{transform: translateZ(calc(var(--size)/2))}
+.back{transform: rotateY(180deg) translateZ(calc(var(--size)/2))}
+.left{transform: rotateY(-90deg) translateZ(calc(var(--size)/2))}
+.right{transform: rotateY(90deg) translateZ(calc(var(--size)/2))}
+.ribbon{position:absolute; inset:0; background:linear-gradient(90deg, #ffd166 0 20px, transparent 20px calc(100% - 20px), #ffd166 calc(100% - 20px)); mix-blend-mode:soft-light; opacity:.9}
+.bow{position:absolute; top:-38px; left:50%; transform:translateX(-50%); width:120px; height:60px; filter:drop-shadow(0 8px 12px #0008)}
+.bow:before,.bow:after{content:""; position:absolute; top:0; width:60px; height:60px; border-radius:50% 50% 10% 10%/70% 70% 30% 30%; background:radial-gradient(circle at 30% 30%, #fff8, #ff4ecd 60%, #a11373 120%)}
+.bow:before{left:0; transform:rotate(18deg)}
+.bow:after{right:0; transform:rotate(-18deg)}
+
+.message{
+  margin-top:20px; padding:18px 20px; border-radius:20px; background:#ffffff10; backdrop-filter:blur(6px);
+  box-shadow: inset 0 0 0 1px #ffffff1a; line-height:1.9; font-size:18px
+}
+
+.grid{
+  margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:14px
+}
+.ph{position:relative; aspect-ratio:1/1; border-radius:18px; overflow:hidden; background:linear-gradient(135deg,#ffffff14,#ffffff05)}
+.ph:before{content:"ذكريات"; position:absolute; inset:auto 10px 10px auto; font-size:12px; padding:6px 10px; border-radius:999px; background:#0006}
+
+footer{padding:32px 16px 60px; text-align:center; color:var(--muted)}
+
+/* Fireworks canvas & confetti */
+canvas#fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none; mix-blend-mode:screen; opacity:.9}
+
+/* Tooltip style for the button */
+.hint{display:block; margin-top:10px; font-size:14px; color:#d1fae5}
+
+/* Responsive tweaks */
+@media (max-width:540px){
+  .gift3d{--size: 180px}
+  .message{font-size:16px}
+}
+
+  </style>
 </head>
 <body>
-  <h2>🔑 إنشاء API جديد</h2>
-  <button onclick="generateKey()">إنشاء مفتاح</button>
-  <p id="result"></p>
+  <!-- Floating balloons (will be cloned with JS for variety) -->
+  <div class="balloon" style="left:10%; background:#ff6bbe; animation-duration:16s"></div>
+  <div class="balloon" style="left:30%; background:#7cf3ff; animation-duration:18s"></div>
+  <div class="balloon" style="left:70%; background:#ffd166; animation-duration:20s"></div>
+  <div class="balloon" style="left:85%; background:#b693ff; animation-duration:17s"></div>  <header>
+    <h1 class="title">عيد ميلاد سعيد يا خيرة 🎉</h1>
+    <p class="subtitle">من صديقتكِ المحِبّة: <strong>هاجر</strong> — اليوم يومك، فليحتفل الكون بابتسامتك ✨</p>
+    <button class="cta" id="openBtn">افتحي هديتك الآن</button>
+    <small class="hint">اضغطي على الصندوق السحري أيضًا ✨</small>
+  </header>  <main class="wrap">
+    <section class="card">
+      <div class="flex">
+        <div class="col">
+          <div class="gift3d" id="gift">
+            <div class="cube" id="cube">
+              <div class="face top"></div>
+              <div class="face bottom"></div>
+              <div class="face front"><div class="ribbon"></div></div>
+              <div class="face back"><div class="ribbon"></div></div>
+              <div class="face left"><div class="ribbon"></div></div>
+              <div class="face right"><div class="ribbon"></div></div>
+              <div class="bow"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="message" id="msg" hidden>
+            <h2 style="margin:0 0 8px; font-size:24px">إلى خيرة الجميلة 💖</h2>
+            <p>
+              كل عام وأنتِ أجمل فرحة في الدنيا! أتمنى لكِ عامًا مليئًا بالنجاحات والضحكات واللحظات الحلوة.
+              شكرًا لأنكِ صديقة لا تُعوّض — وجودك نعمة في حياتي.
+            </p>
+            <p style="margin:0">مع كل الحب: <strong>هاجر</strong> 🌙✨</p>
+          </div>
+          <div class="grid" id="memories" hidden>
+            <div class="ph" style="background-image:url(''); background-size:cover; background-position:center"></div>
+            <div class="ph"></div>
+            <div class="ph"></div>
+            <div class="ph"></div>
+            <div class="ph"></div>
+            <div class="ph"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>  <footer>
+    <p>صُنعت خصيصًا لخيرة — بتوقيع هاجر 💫</p>
+  </footer><canvas id="fx"></canvas>
 
   <script>
-    function generateKey() {
-      const token = "sk_" + Math.random().toString(36).substring(2,12);
-      document.getElementById("result").innerHTML = `
-        <b>API Endpoint:</b> https://nacerob.ct.ws/api.php <br>
-        <b>API Token:</b> ${token}
-      `;
-      // 👈 هنا ممكن تبعت التوكن لـPHP وتخزنه في DB
+    // --- Simple interactive gift box + reveal ---
+    const gift = document.getElementById('gift');
+    const cube = document.getElementById('cube');
+    const msg = document.getElementById('msg');
+    const memories = document.getElementById('memories');
+    const openBtn = document.getElementById('openBtn');
+
+    let opened = false;
+
+    function revealGift(){
+      if(opened) return;
+      opened = true;
+      cube.style.transform = 'rotateX(-22deg) rotateY(35deg) translateZ(-10px)';
+      // Simulate lid opening
+      const top = cube.querySelector('.top');
+      top.style.transform = 'rotateX(90deg) translateZ(calc(var(--size)/2)) rotateZ(180deg) translateY(-40px)';
+      top.style.transition = 'transform 1s cubic-bezier(.2,.8,.2,1)';
+      // Show message and memories
+      msg.hidden = false; memories.hidden = false;
+      msg.animate([{opacity:0, transform:'translateY(10px)'},{opacity:1, transform:'translateY(0)'}], {duration:600, fill:'forwards'});
+      memories.animate([{opacity:0},{opacity:1}], {duration:900, delay:150, fill:'forwards'});
+      // Party time!
+      burstConfetti(240);
+      startFireworks(4800);
     }
-  </script>
-</body>
-</html>
+
+    gift.addEventListener('click', revealGift);
+    openBtn.addEventListener('click', revealGift);
+
+    // --- Duplicate balloons for richness ---
+    (function spawnBalloons(){
+      const colors = ['#ff6bbe','#7cf3ff','#ffd166','#b693ff','#9cffb2','#ff9a8b'];
+      for(let i=0;i<14;i++){
+        const b = document.createElement('div');
+        b.className='balloon';
+        b.style.left = Math.random()*96 + '%';
+        b.style.background = colors[Math.floor(Math.random()*colors.length)];
+        b.style.animationDuration = (14 + Math.random()*10) + 's';
+        b.style.width = (18 + Math.random()*18) + 'px';
+        b.style.height = (24 + Math.random()*28) + 'px';
+        b.style.opacity = .7 + Math.random()*0.3;
+        document.body.appendChild(b);
+      }
+    })();
+
+    // --- Confetti ---
+    function burstConfetti(count=200){
+      const duration = 1500; const gravity = 0.0008; const spread = Math.PI*2;
+      const start = performance.now();
+      const pieces = Array.from({length:count}).map(()=>{
+        const el = document.createElement('div');
+        el.style.position='fixed';
+        el.style.top= (window.innerHeight*0.35 + Math.random()*40) + 'px';
+        el.style.left= (window.innerWidth*0.5 + (Math.random()-.5)*120) + 'px';
+        el.style.width = '6px'; el.style.height='10px';
+        el.style.background = `hsl(${Math.random()*360},100%,65%)`;
+        el.style.transform = 'translate3d(0,0,0) rotate(0deg)';
+        el.style.willChange='transform'; el.style.borderRadius='2px';
+        el.style.zIndex=9999; el.style.pointerEvents='none';
+        document.body.appendChild(el);
+        return {
+          el,
+          angle: Math.random()*spread,
+          velocity: 0.6 + Math.random()*0.9,
+          spin: (Math.random()*2-1)*8,
+        };
+      });
+      function frame(now){
+        const t = now-start;
+        pieces.forEach((p,i)=>{
+          const dx = Math.cos(p.angle)*p.velocity * t;
+          const dy = Math.sin(p.angle)*p.velocity * t + 0.5*gravity*t*t;
+          p.el.style.transform = `translate(${dx}px, ${dy}px) rotate(${p.spin*t/30}deg)`;
+          if(t>duration) p.el.remove();
+        });
+        if(t<duration+500) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    // --- Fireworks on canvas ---
+    const canvas = document.getElementById('fx');
+    const ctx = canvas.getContext('2d');
+    let W, H; function resize(){ W = canvas.width = innerWidth*devicePixelRatio; H = canvas.height = innerHeight*devicePixelRatio; }
+    addEventListener('resize', resize); resize();
+
+    const fireworks = [];
+    function spawnFirework(){
+      const x = Math.random()*W*0.8 + W*0.1;
+      const y = Math.random()*H*0.4 + H*0.1;
+      const color = `hsl(${Math.floor(Math.random()*360)},100%,70%)`;
+      const parts = [];
+      for(let i=0;i<80;i++){
+        const angle = (i/80)*Math.PI*2; const speed = (Math.random()*2+1)*(W/1200);
+        parts.push({x, y, vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed, life: 60+Math.random()*20, color});
+      }
+      fireworks.push({parts});
+    }
+
+    function startFireworks(ms=4000){
+      const until = performance.now()+ms;
+      const timer = setInterval(spawnFirework, 350);
+      setTimeout(()=>clearInterval(timer), ms);
+    }
+
+    function tick(){
+      ctx.clearRect(0,0,W,H);
+      fireworks.forEach(fw=>{
+        fw.parts.forEach(p=>{
+          p.x += p.vx; p.y += p.vy; p.vy += 0.02*devicePixelRatio; p.life -= 1;
+          ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(1, p.life/20), 0, Math.PI*2);
+          ctx.fillStyle = p.color; ctx.fill();
+        });
+        fw.parts = fw.parts.filter(p=>p.life>0);
+      });
+      for(let i=fireworks.length-1; i>=0; i--){ if(fireworks[i].parts.length===0) fireworks.splice(i,1); }
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    // Accessibility: keyboard trigger
+    document.addEventListener('keydown', e=>{ if((e.key==='Enter'||e.key===' ')&&!opened) revealGift(); });
+  </script></body>
+          </html>
