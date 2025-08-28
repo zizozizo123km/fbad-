@@ -1,281 +1,1003 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>عيد ميلاد سعيد يا خيرة — من هاجر</title>
-  <style>
-    :root{
-      --bg1:#0f1020; --bg2:#1a0f2f; --accent:#ff4ecd; --accent2:#7cf3ff; --gold:#ffd166;
-      --card:#0b0d17; --soft:#ffffff22; --text:#f6f7fb; --muted:#cbd5e1;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Kufi Arabic", "Tajawal", Arial, sans-serif;
-      color:var(--text);
-      background: radial-gradient(1200px 700px at 20% 10%, #27123f, transparent 60%),
-                  radial-gradient(900px 600px at 80% 10%, #132c4f, transparent 60%),
-                  linear-gradient(135deg, var(--bg1), var(--bg2));
-      overflow-x:hidden;
-    }/* Floating balloons */
-.balloon{position:fixed; bottom:-10vh; width:24px; height:32px; border-radius:50% 50% 50% 50%/55% 55% 45% 45%;
-  background:var(--accent); box-shadow:0 10px 25px #0006; animation:floatUp 14s linear infinite; opacity:.85}
-.balloon:after{content:""; position:absolute; left:50%; transform:translateX(-50%); bottom:-14px; width:2px; height:18px; background:#fff7;}
-@keyframes floatUp{from{transform:translateY(0) rotate(5deg)} to{transform:translateY(-120vh) rotate(-15deg)}}
-
-header{
-  position:relative; padding:80px 20px 40px; text-align:center;
-}
-.title{
-  font-size:clamp(28px, 6vw, 64px); line-height:1.1; font-weight:800;
-  letter-spacing:1px; margin:0 auto; max-width:900px;
-  background: conic-gradient(from 10deg, var(--accent), var(--accent2), #ffd6e7, var(--gold), var(--accent));
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-  filter: drop-shadow(0 0 12px #ff4ecd40) drop-shadow(0 0 30px #7cf3ff35);
-}
-.subtitle{margin:14px auto 0; font-size:clamp(16px,2.2vw,22px); color:var(--muted)}
-
-.cta{
-  margin:32px auto 0; display:inline-flex; align-items:center; gap:10px; padding:14px 22px; font-weight:700; font-size:18px;
-  border:none; color:#0a0a0a; background: linear-gradient(135deg, var(--gold), #ff88e8);
-  border-radius:999px; cursor:pointer; box-shadow:0 10px 30px #0008, inset 0 2px 8px #ffffff70; transition:transform .15s ease, box-shadow .2s ease;
-}
-.cta:hover{transform:translateY(-2px) scale(1.02)}
-.cta:active{transform:translateY(1px) scale(.99)}
-
-/* Gift card */
-.wrap{display:grid; place-items:center; padding:20px}
-.card{
-  position:relative; width:min(100%, 980px); margin:40px auto; border-radius:28px; padding:28px; overflow:hidden;
-  background:linear-gradient(180deg, #0e1224cc, #090b17ee);
-  box-shadow:0 20px 60px #0009, inset 0 0 0 1px #ffffff10;
-}
-.card:before{content:""; position:absolute; inset:-2px; border-radius:30px; padding:2px; background:linear-gradient(135deg, #ffffff10, #ff4ecd55, #7cf3ff55);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude;
-}
-
-.flex{display:flex; gap:22px; flex-wrap:wrap; align-items:center; justify-content:center}
-.col{flex:1 1 300px}
-
-.gift3d{
-  --size: 220px; width:var(--size); height:var(--size); perspective:1000px; margin-inline:auto; cursor:pointer;
-}
-.cube{position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
-.face{position:absolute; inset:0; background:repeating-linear-gradient(90deg, #6f2bff 0 18px, #ff4ecd 18px 36px); box-shadow:inset 0 0 40px #0006}
-.top{transform: rotateX(90deg) translateZ(calc(var(--size)/2)); transform-origin:50% 50%; background:repeating-linear-gradient(0deg, #ff4ecd 0 18px, #6f2bff 18px 36px)}
-.bottom{transform: rotateX(-90deg) translateZ(calc(var(--size)/2))}
-.front{transform: translateZ(calc(var(--size)/2))}
-.back{transform: rotateY(180deg) translateZ(calc(var(--size)/2))}
-.left{transform: rotateY(-90deg) translateZ(calc(var(--size)/2))}
-.right{transform: rotateY(90deg) translateZ(calc(var(--size)/2))}
-.ribbon{position:absolute; inset:0; background:linear-gradient(90deg, #ffd166 0 20px, transparent 20px calc(100% - 20px), #ffd166 calc(100% - 20px)); mix-blend-mode:soft-light; opacity:.9}
-.bow{position:absolute; top:-38px; left:50%; transform:translateX(-50%); width:120px; height:60px; filter:drop-shadow(0 8px 12px #0008)}
-.bow:before,.bow:after{content:""; position:absolute; top:0; width:60px; height:60px; border-radius:50% 50% 10% 10%/70% 70% 30% 30%; background:radial-gradient(circle at 30% 30%, #fff8, #ff4ecd 60%, #a11373 120%)}
-.bow:before{left:0; transform:rotate(18deg)}
-.bow:after{right:0; transform:rotate(-18deg)}
-
-.message{
-  margin-top:20px; padding:18px 20px; border-radius:20px; background:#ffffff10; backdrop-filter:blur(6px);
-  box-shadow: inset 0 0 0 1px #ffffff1a; line-height:1.9; font-size:18px
-}
-
-.grid{
-  margin-top:22px; display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:14px
-}
-.ph{position:relative; aspect-ratio:1/1; border-radius:18px; overflow:hidden; background:linear-gradient(135deg,#ffffff14,#ffffff05)}
-.ph:before{content:"ذكريات"; position:absolute; inset:auto 10px 10px auto; font-size:12px; padding:6px 10px; border-radius:999px; background:#0006}
-
-footer{padding:32px 16px 60px; text-align:center; color:var(--muted)}
-
-/* Fireworks canvas & confetti */
-canvas#fx{position:fixed; inset:0; width:100%; height:100%; pointer-events:none; mix-blend-mode:screen; opacity:.9}
-
-/* Tooltip style for the button */
-.hint{display:block; margin-top:10px; font-size:14px; color:#d1fae5}
-
-/* Responsive tweaks */
-@media (max-width:540px){
-  .gift3d{--size: 180px}
-  .message{font-size:16px}
-}
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مُنشئ السيرة الذاتية الذكي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            direction: rtl;
+        }
+        .cv-container {
+            width: 21cm;
+            min-height: 29.7cm;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+        }
+        .editable {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .editable:hover {
+            background-color: #f1f5f9;
+        }
+        .template-button {
+            transition: transform 0.2s;
+        }
+        .template-button:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .cv-container {
+                width: 100%;
+                margin: 0.5rem auto;
+                padding: 1rem;
+            }
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-<body>
-  <!-- Floating balloons (will be cloned with JS for variety) -->
-  <div class="balloon" style="left:10%; background:#ff6bbe; animation-duration:16s"></div>
-  <div class="balloon" style="left:30%; background:#7cf3ff; animation-duration:18s"></div>
-  <div class="balloon" style="left:70%; background:#ffd166; animation-duration:20s"></div>
-  <div class="balloon" style="left:85%; background:#b693ff; animation-duration:17s"></div>  <header>
-    <h1 class="title">عيد ميلاد سعيد يا خيرة 🎉</h1>
-    <p class="subtitle">من صديقتكِ المحِبّة: <strong>هاجر</strong> — اليوم يومك، فليحتفل الكون بابتسامتك ✨</p>
-    <button class="cta" id="openBtn">افتحي هديتك الآن</button>
-    <small class="hint">اضغطي على الصندوق السحري أيضًا ✨</small>
-  </header>  <main class="wrap">
-    <section class="card">
-      <div class="flex">
-        <div class="col">
-          <div class="gift3d" id="gift">
-            <div class="cube" id="cube">
-              <div class="face top"></div>
-              <div class="face bottom"></div>
-              <div class="face front"><div class="ribbon"></div></div>
-              <div class="face back"><div class="ribbon"></div></div>
-              <div class="face left"><div class="ribbon"></div></div>
-              <div class="face right"><div class="ribbon"></div></div>
-              <div class="bow"></div>
+<body class="bg-gray-100 flex flex-col items-center min-h-screen p-4 md:p-8">
+
+    <div id="control-panel" class="fixed top-4 left-4 z-50 flex flex-col space-y-2 bg-white p-4 rounded-lg shadow-xl transition-transform duration-300">
+        <button id="save-pdf" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105">
+            حفظ كـ PDF
+        </button>
+        <button id="add-section" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-transform transform hover:scale-105">
+            إضافة قسم جديد
+        </button>
+        <div class="bg-gray-50 p-4 rounded-lg shadow-inner">
+            <h3 class="text-lg font-bold mb-2 text-gray-800">اختر القالب</h3>
+            <div id="template-buttons-container" class="grid grid-cols-2 gap-2">
+                <button class="template-button bg-gray-200 text-gray-800 py-1 px-2 rounded-lg text-sm" data-template="template1">القالب 1</button>
+                <button class="template-button bg-gray-200 text-gray-800 py-1 px-2 rounded-lg text-sm" data-template="template2">القالب 2</button>
+                <button class="template-button bg-gray-200 text-gray-800 py-1 px-2 rounded-lg text-sm" data-template="template3">القالب 3</button>
+                <button class="template-button bg-gray-200 text-gray-800 py-1 px-2 rounded-lg text-sm" data-template="template4">القالب 4</button>
+                <button class="template-button bg-gray-200 text-gray-800 py-1 px-2 rounded-lg text-sm" data-template="template5">القالب 5</button>
             </div>
-          </div>
         </div>
-        <div class="col">
-          <div class="message" id="msg" hidden>
-            <h2 style="margin:0 0 8px; font-size:24px">إلى خيرة الجميلة 💖</h2>
-            <p>
-              كل عام وأنتِ أجمل فرحة في الدنيا! أتمنى لكِ عامًا مليئًا بالنجاحات والضحكات واللحظات الحلوة.
-              شكرًا لأنكِ صديقة لا تُعوّض — وجودك نعمة في حياتي.
+        <div class="bg-gray-50 p-4 rounded-lg shadow-inner mt-4">
+            <h3 class="text-lg font-bold mb-2 text-gray-800">توليد قالب جديد (AI)</h3>
+            <textarea id="ai-template-input" class="w-full h-20 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 mb-2" placeholder="صف القالب الذي تريده..."></textarea>
+            <button id="generate-template-ai" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition-transform transform hover:scale-105 w-full flex items-center justify-center space-x-2 space-x-reverse">
+                <span id="generate-template-text">توليد قالب</span>
+                <span id="loading-template-spinner" class="loader hidden"></span>
+            </button>
+        </div>
+    </div>
+    <button id="toggle-panel" class="fixed top-4 left-4 z-50 md:hidden bg-gray-800 text-white p-2 rounded-full shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <div class="w-full max-w-2xl bg-white p-6 rounded-lg shadow-xl mb-8">
+        <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">توليد السيرة الذاتية بالذكاء الاصطناعي</h2>
+        <p class="text-gray-600 mb-4 text-center">أدخل معلوماتك (اسمك، خبراتك، مهاراتك، تعليمك، لغاتك، تاريخ ميلادك) في مربع النص أدناه، وسنقوم بتنظيمها لك في قالب احترافي.</p>
+        <textarea id="ai-input" class="w-full h-40 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800" placeholder="مثال: اسمي الكامل هو علي أحمد، أعمل كمطور برمجيات بخبرة 5 سنوات في بايثون وجافا سكريبت. لدي خبرة في إدارة المشاريع وتطوير الواجهات الأمامية. حاصل على درجة البكالوريوس في علوم الحاسوب من جامعة القاهرة. تاريخ ميلادي 15/05/1990. أتحدث العربية والإنجليزية بطلاقة."></textarea>
+        <div class="mt-4 flex justify-center">
+            <button id="generate-ai-content" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 flex items-center space-x-2 space-x-reverse">
+                <span id="generate-text-span">توليد السيرة الذاتية</span>
+                <span id="loading-spinner" class="loader hidden"></span>
+            </button>
+        </div>
+
+        <div id="ai-parsed-output-section" class="mt-8 hidden">
+            <h3 class="text-xl font-bold mb-4 text-gray-800 text-center">البيانات التي تم استخلاصها</h3>
+            <div id="ai-parsed-output" class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-4 text-sm text-gray-700">
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-2">
+                ملاحظة: يمكنك مراجعة وتعديل هذه البيانات قبل تطبيقها على السيرة الذاتية.
             </p>
-            <p style="margin:0">مع كل الحب: <strong>هاجر</strong> 🌙✨</p>
-          </div>
-          <div class="grid" id="memories" hidden>
-            <div class="ph" style="background-image:url(''); background-size:cover; background-position:center"></div>
-            <div class="ph"></div>
-            <div class="ph"></div>
-            <div class="ph"></div>
-            <div class="ph"></div>
-            <div class="ph"></div>
-          </div>
+            <div class="mt-4 flex justify-center space-x-4 space-x-reverse">
+                <button id="edit-parsed-data" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                    تعديل البيانات
+                </button>
+                <button id="apply-to-cv" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                    تطبيق على السيرة الذاتية
+                </button>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>  <footer>
-    <p>صُنعت خصيصًا لخيرة — بتوقيع هاجر 💫</p>
-  </footer><canvas id="fx"></canvas>
+    </div>
 
-  <script>
-    // --- Simple interactive gift box + reveal ---
-    const gift = document.getElementById('gift');
-    const cube = document.getElementById('cube');
-    const msg = document.getElementById('msg');
-    const memories = document.getElementById('memories');
-    const openBtn = document.getElementById('openBtn');
+    <div id="cv-document" class="cv-container bg-white rounded-lg overflow-hidden shadow-2xl">
+    </div>
 
-    let opened = false;
+    <div id="add-section-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white p-6 rounded-lg shadow-xl w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">إضافة قسم جديد</h2>
+            <div class="mb-4">
+                <label for="new-section-title" class="block text-sm font-bold text-gray-700 mb-1">عنوان القسم:</label>
+                <input type="text" id="new-section-title" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="new-section-content" class="block text-sm font-bold text-gray-700 mb-1">محتوى القسم:</label>
+                <textarea id="new-section-content" class="w-full h-32 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="flex justify-end space-x-2 space-x-reverse">
+                <button id="cancel-add-section" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">إلغاء</button>
+                <button id="confirm-add-section" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg">إضافة</button>
+            </div>
+        </div>
+    </div>
 
-    function revealGift(){
-      if(opened) return;
-      opened = true;
-      cube.style.transform = 'rotateX(-22deg) rotateY(35deg) translateZ(-10px)';
-      // Simulate lid opening
-      const top = cube.querySelector('.top');
-      top.style.transform = 'rotateX(90deg) translateZ(calc(var(--size)/2)) rotateZ(180deg) translateY(-40px)';
-      top.style.transition = 'transform 1s cubic-bezier(.2,.8,.2,1)';
-      // Show message and memories
-      msg.hidden = false; memories.hidden = false;
-      msg.animate([{opacity:0, transform:'translateY(10px)'},{opacity:1, transform:'translateY(0)'}], {duration:600, fill:'forwards'});
-      memories.animate([{opacity:0},{opacity:1}], {duration:900, delay:150, fill:'forwards'});
-      // Party time!
-      burstConfetti(240);
-      startFireworks(4800);
-    }
+    <script>
+        // Set your API key here. **MUST BE A VALID KEY**
+        // You can get one from Google AI Studio: https://aistudio.google.com/app/apikey
+        const apiKey = "AIzaSyD4TF6AhFZqGB-C0oH0ibAOy6EByKU5ifo";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
-    gift.addEventListener('click', revealGift);
-    openBtn.addEventListener('click', revealGift);
-
-    // --- Duplicate balloons for richness ---
-    (function spawnBalloons(){
-      const colors = ['#ff6bbe','#7cf3ff','#ffd166','#b693ff','#9cffb2','#ff9a8b'];
-      for(let i=0;i<14;i++){
-        const b = document.createElement('div');
-        b.className='balloon';
-        b.style.left = Math.random()*96 + '%';
-        b.style.background = colors[Math.floor(Math.random()*colors.length)];
-        b.style.animationDuration = (14 + Math.random()*10) + 's';
-        b.style.width = (18 + Math.random()*18) + 'px';
-        b.style.height = (24 + Math.random()*28) + 'px';
-        b.style.opacity = .7 + Math.random()*0.3;
-        document.body.appendChild(b);
-      }
-    })();
-
-    // --- Confetti ---
-    function burstConfetti(count=200){
-      const duration = 1500; const gravity = 0.0008; const spread = Math.PI*2;
-      const start = performance.now();
-      const pieces = Array.from({length:count}).map(()=>{
-        const el = document.createElement('div');
-        el.style.position='fixed';
-        el.style.top= (window.innerHeight*0.35 + Math.random()*40) + 'px';
-        el.style.left= (window.innerWidth*0.5 + (Math.random()-.5)*120) + 'px';
-        el.style.width = '6px'; el.style.height='10px';
-        el.style.background = `hsl(${Math.random()*360},100%,65%)`;
-        el.style.transform = 'translate3d(0,0,0) rotate(0deg)';
-        el.style.willChange='transform'; el.style.borderRadius='2px';
-        el.style.zIndex=9999; el.style.pointerEvents='none';
-        document.body.appendChild(el);
-        return {
-          el,
-          angle: Math.random()*spread,
-          velocity: 0.6 + Math.random()*0.9,
-          spin: (Math.random()*2-1)*8,
+        // Define the HTML for each template
+        const templates = {
+            template1: `
+                <div class="flex flex-col md:flex-row h-full">
+                    <div class="w-full md:w-1/3 bg-gray-900 text-white p-8 space-y-8">
+                        <div class="flex flex-col items-center space-y-4">
+                            <img id="profile-image" src="https://placehold.co/150x150/000000/FFFFFF?text=صورتك" alt="صورة شخصية" class="w-36 h-36 rounded-full border-4 border-white object-cover editable">
+                            <div class="text-center">
+                                <h1 id="user-name" class="text-3xl font-bold editable" data-placeholder="اسمك الكامل">اسمك الكامل</h1>
+                                <p id="user-title" class="text-md text-gray-400 editable" data-placeholder="مسمى وظيفي">مسمى وظيفي</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h2 class="text-xl font-semibold border-b-2 border-gray-500 pb-2 mb-4">معلومات الاتصال</h2>
+                            <p id="user-phone" class="text-sm editable" data-placeholder="رقم الهاتف">رقم الهاتف: 123-456-7890</p>
+                            <p id="user-email" class="text-sm editable" data-placeholder="البريد الإلكتروني">البريد الإلكتروني: you@example.com</p>
+                            <p id="user-location" class="text-sm editable" data-placeholder="الموقع">الموقع: مدينتك، دولتك</p>
+                            <p id="user-dob" class="text-sm editable" data-placeholder="تاريخ الميلاد">تاريخ الميلاد: 01-01-1990</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h2 class="text-xl font-semibold border-b-2 border-gray-500 pb-2 mb-4">المهارات</h2>
+                            <ul id="user-skills" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="مهارة 1، مهارة 2...">
+                                <li>مهارة 1</li>
+                                <li>مهارة 2</li>
+                                <li>مهارة 3</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h2 class="text-xl font-semibold border-b-2 border-gray-500 pb-2 mb-4">اللغات</h2>
+                            <ul id="user-languages" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="لغة 1، لغة 2...">
+                                <li>لغة 1</li>
+                                <li>لغة 2</li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h2 class="text-xl font-semibold border-b-2 border-gray-500 pb-2 mb-4">الاهتمامات</h2>
+                            <ul id="user-interests" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="اهتمام 1، اهتمام 2...">
+                                <li>اهتمام 1</li>
+                                <li>اهتمام 2</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-2/3 p-8 space-y-8">
+                        <div>
+                            <h2 class="text-2xl font-bold border-b-2 border-gray-300 pb-2 mb-4">الملف الشخصي</h2>
+                            <p id="user-profile" class="text-gray-700 leading-relaxed text-sm editable" data-placeholder="اكتب هنا نبذة عنك">
+                                نبذة مختصرة عن خبراتك وأهدافك المهنية.
+                            </p>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold border-b-2 border-gray-300 pb-2 mb-4">الخبرة المهنية</h2>
+                            <div id="user-experience" class="space-y-6">
+                                <div class="relative">
+                                    <h3 class="text-lg font-semibold editable" data-placeholder="مسمى وظيفي">مسمى وظيفي</h3>
+                                    <p class="text-gray-600 italic text-sm editable" data-placeholder="الشركة، المدينة | التاريخ">الشركة، المدينة | التاريخ</p>
+                                    <p class="text-sm text-gray-700 mt-2 editable" data-placeholder="وصف المهام والمسؤوليات">
+                                        وصف المهام والمسؤوليات.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold border-b-2 border-gray-300 pb-2 mb-4">التعليم</h2>
+                            <div id="user-education" class="space-y-6">
+                                <div class="relative">
+                                    <h3 class="text-lg font-semibold editable" data-placeholder="الدرجة العلمية">الدرجة العلمية</h3>
+                                    <p class="text-gray-600 italic text-sm editable" data-placeholder="الجامعة، المدينة | التاريخ">الجامعة، المدينة | التاريخ</p>
+                                    <p class="text-sm text-gray-700 mt-2 editable" data-placeholder="الشهادات والإنجازات">
+                                        الشهادات والإنجازات.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="custom-sections-container" class="space-y-6"></div>
+                    </div>
+                </div>
+            `,
+            template2: `
+                <div class="flex flex-col items-center text-center p-8 space-y-6">
+                    <img id="profile-image" src="https://placehold.co/150x150/000000/FFFFFF?text=صورتك" alt="صورة شخصية" class="w-40 h-40 rounded-full border-4 border-gray-300 object-cover editable">
+                    <h1 id="user-name" class="text-4xl font-bold editable" data-placeholder="اسمك الكامل">اسمك الكامل</h1>
+                    <p id="user-title" class="text-xl text-gray-600 editable" data-placeholder="مسمى وظيفي">مسمى وظيفي</p>
+                    <div class="border-b-2 w-20 border-gray-400 my-4"></div>
+                    <p id="user-profile" class="text-gray-700 leading-relaxed max-w-2xl editable" data-placeholder="نبذة شخصية">
+                        نبذة شخصية مفصلة عن خبراتك ومهاراتك.
+                    </p>
+                    <div class="w-full max-w-2xl text-right space-y-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">معلومات الاتصال</h2>
+                            <div class="text-gray-700 space-y-1">
+                                <p id="user-phone" class="text-sm editable" data-placeholder="رقم الهاتف">رقم الهاتف: 123-456-7890</p>
+                                <p id="user-email" class="text-sm editable" data-placeholder="البريد الإلكتروني">البريد الإلكتروني: you@example.com</p>
+                                <p id="user-location" class="text-sm editable" data-placeholder="الموقع">الموقع: مدينتك، دولتك</p>
+                                <p id="user-dob" class="text-sm editable" data-placeholder="تاريخ الميلاد">تاريخ الميلاد: 01-01-1990</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">الخبرة المهنية</h2>
+                            <div id="user-experience" class="space-y-4">
+                                <div class="editable" data-placeholder="مسمى وظيفي، الشركة، التاريخ">
+                                    <h3 class="text-lg font-semibold">مسمى وظيفي</h3>
+                                    <p class="text-gray-600 italic">الشركة، المدينة | التاريخ</p>
+                                    <p class="text-sm text-gray-700 mt-1">
+                                        وصف المهام والمسؤوليات.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">التعليم</h2>
+                            <div id="user-education" class="space-y-4">
+                                <div class="editable" data-placeholder="الدرجة العلمية، الجامعة، التاريخ">
+                                    <h3 class="text-lg font-semibold">الدرجة العلمية</h3>
+                                    <p class="text-gray-600 italic">الجامعة، المدينة | التاريخ</p>
+                                    <p class="text-sm text-gray-700 mt-1">
+                                        الشهادات والإنجازات.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">المهارات</h2>
+                            <ul id="user-skills" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="مهارة 1، مهارة 2...">
+                                <li>مهارة 1</li>
+                                <li>مهارة 2</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">اللغات</h2>
+                            <ul id="user-languages" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="لغة 1، لغة 2...">
+                                <li>لغة 1</li>
+                                <li>لغة 2</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800 border-b-2 border-gray-300 pb-2 mb-4">الاهتمامات</h2>
+                            <ul id="user-interests" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="اهتمام 1، اهتمام 2...">
+                                <li>اهتمام 1</li>
+                                <li>اهتمام 2</li>
+                            </ul>
+                        </div>
+                        <div id="custom-sections-container" class="space-y-6"></div>
+                    </div>
+                </div>
+            `,
+            template3: `
+                <div class="bg-gray-200 p-8">
+                    <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-lg p-6 space-x-6 space-x-reverse">
+                        <div class="w-full md:w-1/3 space-y-6">
+                            <div class="text-center">
+                                <img id="profile-image" src="https://placehold.co/120x120/E2E8F0/4A5568?text=صورتك" alt="صورة شخصية" class="w-32 h-32 rounded-full mx-auto object-cover editable">
+                                <h1 id="user-name" class="text-2xl font-bold mt-2 editable" data-placeholder="اسمك">اسمك الكامل</h1>
+                                <p id="user-title" class="text-gray-600 editable" data-placeholder="مسمى وظيفي">مسمى وظيفي</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h2 class="font-bold text-lg mb-2">معلومات الاتصال</h2>
+                                <p id="user-phone" class="text-sm editable" data-placeholder="رقم الهاتف">رقم الهاتف: +123456789</p>
+                                <p id="user-email" class="text-sm editable" data-placeholder="البريد">البريد: you@example.com</p>
+                                <p id="user-location" class="text-sm editable" data-placeholder="الموقع">الموقع: مدينتك، دولتك</p>
+                                <p id="user-dob" class="text-sm editable" data-placeholder="تاريخ الميلاد">تاريخ الميلاد: 01-01-1990</p>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h2 class="font-bold text-lg mb-2">المهارات</h2>
+                                <ul id="user-skills" class="list-disc list-inside space-y-1 text-sm editable" data-placeholder="مهاراتك">
+                                    <li>مهارة 1</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h2 class="font-bold text-lg mb-2">اللغات</h2>
+                                <ul id="user-languages" class="list-disc list-inside space-y-1 text-sm editable" data-placeholder="لغاتك">
+                                    <li>لغة 1</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <h2 class="font-bold text-lg mb-2">الاهتمامات</h2>
+                                <ul id="user-interests" class="list-disc list-inside space-y-1 text-sm editable" data-placeholder="اهتماماتك">
+                                    <li>اهتمام 1</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/3 space-y-6">
+                            <div>
+                                <h2 class="font-bold text-xl border-b pb-2 mb-2">الملف الشخصي</h2>
+                                <p id="user-profile" class="text-sm text-gray-700 editable" data-placeholder="اكتب نبذة">
+                                    نبذة عنك.
+                                </p>
+                            </div>
+                            <div>
+                                <h2 class="font-bold text-xl border-b pb-2 mb-2">الخبرة</h2>
+                                <div id="user-experience" class="space-y-4">
+                                    <div class="editable" data-placeholder="المسمى الوظيفي">
+                                        <h3 class="font-semibold">المسمى الوظيفي</h3>
+                                        <p class="text-sm text-gray-600 italic">الشركة | التاريخ</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h2 class="font-bold text-xl border-b pb-2 mb-2">التعليم</h2>
+                                <div id="user-education" class="space-y-4">
+                                    <div class="editable" data-placeholder="الدرجة العلمية">
+                                        <h3 class="font-semibold">الدرجة العلمية</h3>
+                                        <p class="text-sm text-gray-600 italic">الجامعة | التاريخ</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="custom-sections-container" class="space-y-6"></div>
+                        </div>
+                    </div>
+                </div>
+            `,
+            template4: `
+                <div class="flex flex-col p-8 space-y-8 font-serif">
+                    <div class="text-center">
+                        <h1 id="user-name" class="text-4xl font-bold editable" data-placeholder="اسمك الكامل">اسمك الكامل</h1>
+                        <p id="user-title" class="text-md text-gray-600 editable" data-placeholder="مسمى وظيفي">مسمى وظيفي</p>
+                        <div class="mt-2 text-sm text-gray-500 editable" data-placeholder="معلومات الاتصال">
+                            <p id="user-phone" class="text-sm editable" data-placeholder="رقم الهاتف">الهاتف: 123-456-7890</p>
+                            <p id="user-email" class="text-sm editable" data-placeholder="البريد">البريد الإلكتروني: you@example.com</p>
+                            <p id="user-location" class="text-sm editable" data-placeholder="الموقع">الموقع: مدينتك</p>
+                            <p id="user-dob" class="text-sm editable" data-placeholder="تاريخ الميلاد">تاريخ الميلاد: 01-01-1990</p>
+                        </div>
+                    </div>
+                    <div class="border-b-2 border-gray-300"></div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-2">الملف الشخصي</h2>
+                        <p id="user-profile" class="text-gray-700 editable" data-placeholder="نبذة شخصية">
+                            نبذة عنك ومهاراتك.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-2">الخبرة المهنية</h2>
+                        <div id="user-experience" class="space-y-4">
+                            <div class="editable" data-placeholder="المسمى الوظيفي، الشركة، التاريخ">
+                                <h3 class="font-semibold text-lg">المسمى الوظيفي</h3>
+                                <p class="text-sm text-gray-600 italic">الشركة، المدينة | التاريخ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-2">التعليم</h2>
+                        <div id="user-education" class="space-y-4">
+                            <div class="editable" data-placeholder="الدرجة العلمية، الجامعة، التاريخ">
+                                <h3 class="font-semibold text-lg">الدرجة العلمية</h3>
+                                <p class="text-sm text-gray-600 italic">الجامعة، المدينة | التاريخ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-2">المهارات</h2>
+                        <ul id="user-skills" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="مهاراتك">
+                            <li>مهارة 1</li>
+                            <li>مهارة 2</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-2">اللغات</h2>
+                        <ul id="user-languages" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="لغاتك">
+                            <li>لغة 1</li>
+                            <li>لغة 2</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-2">الاهتمامات</h2>
+                        <ul id="user-interests" class="list-disc list-inside space-y-2 text-sm editable" data-placeholder="اهتماماتك">
+                            <li>اهتمام 1</li>
+                            <li>اهتمام 2</li>
+                        </ul>
+                    </div>
+                    <div id="custom-sections-container" class="space-y-6"></div>
+                </div>
+            `,
+            template5: `
+                <div class="bg-gray-900 text-white p-8">
+                    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 rounded-lg shadow-lg text-center">
+                        <img id="profile-image" src="https://placehold.co/100x100/3B82F6/ffffff?text=صورة" alt="صورة شخصية" class="w-24 h-24 rounded-full border-4 border-white mx-auto object-cover editable">
+                        <h1 id="user-name" class="text-3xl font-bold mt-2 editable" data-placeholder="اسمك الكامل">اسمك الكامل</h1>
+                        <p id="user-title" class="text-lg editable" data-placeholder="مسمى وظيفي">مسمى وظيفي</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6 mt-8">
+                        <div class="col-span-1 space-y-6">
+                            <div class="bg-white text-gray-800 p-4 rounded-lg shadow-md">
+                                <h2 class="font-bold text-xl border-b-2 border-indigo-300 pb-2 mb-2">الاتصال</h2>
+                                <p id="user-phone" class="text-sm editable" data-placeholder="الهاتف">الهاتف: 123-456-7890</p>
+                                <p id="user-email" class="text-sm editable" data-placeholder="البريد">البريد: you@example.com</p>
+                                <p id="user-location" class="text-sm editable" data-placeholder="الموقع">الموقع: مدينتك، دولتك</p>
+                                <p id="user-dob" class="text-sm editable" data-placeholder="تاريخ الميلاد">تاريخ الميلاد: 01-01-1990</p>
+                            </div>
+                            <div class="bg-white text-gray-800 p-4 rounded-lg shadow-md">
+                                <h2 class="font-bold text-xl border-b-2 border-indigo-300 pb-2 mb-2">المهارات</h2>
+                                <ul id="user-skills" class="list-none space-y-2 text-sm editable" data-placeholder="مهاراتك">
+                                    <li>مهارة 1</li>
+                                    <li>مهارة 2</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white text-gray-800 p-4 rounded-lg shadow-md">
+                                <h2 class="font-bold text-xl border-b-2 border-indigo-300 pb-2 mb-2">اللغات</h2>
+                                <ul id="user-languages" class="list-none space-y-2 text-sm editable" data-placeholder="لغاتك">
+                                    <li>لغة 1</li>
+                                    <li>لغة 2</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white text-gray-800 p-4 rounded-lg shadow-md">
+                                <h2 class="font-bold text-xl border-b-2 border-indigo-300 pb-2 mb-2">الاهتمامات</h2>
+                                <ul id="user-interests" class="list-none space-y-2 text-sm editable" data-placeholder="اهتماماتك">
+                                    <li>اهتمام 1</li>
+                                    <li>اهتمام 2</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-span-2 space-y-6">
+                             <div class="bg-white text-gray-800 p-4 rounded-lg shadow-md">
+                                <h2 class="font-bold text-xl border-b-2 border-indigo-300 pb-2 mb-2">الملف الشخصي</h2>
+                                <p id="user-profile" class="text-sm text-gray-700 editable" data-placeholder="اكتب نبذة">
+                                    نبذة عنك.
+                                </p>
+                            </div>
+                            <div class="bg-white text-gray-800 p-4 rounded-lg shadow-md">
+                                <h2 class="font-bold text-xl border-b-2 border-indigo-300 pb-2 mb-2">الخبرة</h2>
+                                <div id="user-experience" class="space-y-4">
+                                    <div class="editable" data-placeholder="المسمى الوظيفي">
+                                        <h3 class="font-semibold">المسمى الوظيفي</h3>
+                                        <p class="text-sm text-gray-600 italic">الشركة | التاريخ</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white text-gray-800 p-4 rounded-lg shadow-md">
+                                <h2 class="font-bold text-xl border-b-2 border-indigo-300 pb-2 mb-2">التعليم</h2>
+                                <div id="user-education" class="space-y-4">
+                                    <div class="editable" data-placeholder="الدرجة العلمية">
+                                        <h3 class="font-semibold">الدرجة العلمية</h3>
+                                        <p class="text-sm text-gray-600 italic">الجامعة | التاريخ</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="custom-sections-container" class="space-y-6"></div>
+                        </div>
+                    </div>
+                </div>
+            `
         };
-      });
-      function frame(now){
-        const t = now-start;
-        pieces.forEach((p,i)=>{
-          const dx = Math.cos(p.angle)*p.velocity * t;
-          const dy = Math.sin(p.angle)*p.velocity * t + 0.5*gravity*t*t;
-          p.el.style.transform = `translate(${dx}px, ${dy}px) rotate(${p.spin*t/30}deg)`;
-          if(t>duration) p.el.remove();
+
+        const cvDocument = document.getElementById('cv-document');
+        const savePdfButton = document.getElementById('save-pdf');
+        const templateButtonsContainer = document.getElementById('template-buttons-container');
+        const aiInput = document.getElementById('ai-input');
+        const generateButton = document.getElementById('generate-ai-content');
+        const applyToCvButton = document.getElementById('apply-to-cv');
+        const parsedOutputSection = document.getElementById('ai-parsed-output-section');
+        const parsedOutputDiv = document.getElementById('ai-parsed-output');
+        const editParsedDataButton = document.getElementById('edit-parsed-data');
+        const addSectionButton = document.getElementById('add-section');
+        const addSectionModal = document.getElementById('add-section-modal');
+        const cancelAddSectionButton = document.getElementById('cancel-add-section');
+        const confirmAddSectionButton = document.getElementById('confirm-add-section');
+        const togglePanelButton = document.getElementById('toggle-panel');
+        const controlPanel = document.getElementById('control-panel');
+        const aiTemplateInput = document.getElementById('ai-template-input');
+        const generateTemplateButton = document.getElementById('generate-template-ai');
+        const generateTemplateText = document.getElementById('generate-template-text');
+        const loadingTemplateSpinner = document.getElementById('loading-template-spinner');
+
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          
+        let cvData = null;
+        let currentTemplate = 'template1';
+
+        // Function to render a template
+        function renderTemplate(templateName) {
+            cvDocument.innerHTML = templates[templateName];
+            currentTemplate = templateName;
+            addEventListeners();
+            // Re-apply data if available
+            if (cvData) {
+                applyDataToTemplate();
+            }
+        }
+
+        renderTemplate(currentTemplate);
+
+        // Function to attach all event listeners for editing and image upload
+        function addEventListeners() {
+            document.querySelectorAll('.editable').forEach(el => {
+                el.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    el.setAttribute('contenteditable', 'true');
+                    el.classList.add('p-1', 'rounded', 'border', 'border-blue-400', 'focus:outline-none');
+                    el.focus();
+                });
+            });
+
+            if (isMobile) {
+                document.body.addEventListener('touchend', (event) => {
+                    document.querySelectorAll('.editable[contenteditable="true"]').forEach(el => {
+                        if (!el.contains(event.target)) {
+                            el.removeAttribute('contenteditable');
+                            el.classList.remove('p-1', 'rounded', 'border', 'border-blue-400');
+                        }
+                    });
+                });
+            } else {
+                document.body.addEventListener('click', (event) => {
+                    document.querySelectorAll('.editable[contenteditable="true"]').forEach(el => {
+                        if (!el.contains(event.target)) {
+                            el.removeAttribute('contenteditable');
+                            el.classList.remove('p-1', 'rounded', 'border', 'border-blue-400');
+                        }
+                    });
+                });
+            }
+
+            const profileImage = document.getElementById('profile-image');
+            if (profileImage) {
+                profileImage.addEventListener('click', () => {
+                    const input = document.createElement('input');
+                    input.type = 'file';
+                    input.accept = 'image/*';
+                    input.onchange = (e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = (event) => {
+                                profileImage.src = event.target.result;
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    };
+                    input.click();
+                });
+            }
+        }
+
+        // Save as PDF function
+        savePdfButton.addEventListener('click', async () => {
+            const cvElement = document.getElementById('cv-document');
+              
+            document.querySelectorAll('.editable[contenteditable="true"]').forEach(el => {
+                el.removeAttribute('contenteditable');
+                el.classList.remove('p-1', 'rounded', 'border', 'border-blue-400');
+            });
+
+            const originalText = savePdfButton.innerHTML;
+            savePdfButton.innerHTML = 'جاري التحميل...';
+              
+            try {
+                const canvas = await html2canvas(cvElement, {
+                    scale: 2,
+                    allowTaint: true,
+                    useCORS: true
+                });
+                  
+                const imgData = canvas.toDataURL('image/png');
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('السيرة-الذاتية.pdf');
+            } catch (error) {
+                console.error("Failed to generate PDF:", error);
+                alert("فشل في توليد ملف الـ PDF. يرجى المحاولة مرة أخرى.");
+            } finally {
+                savePdfButton.innerHTML = originalText;
+                addEventListeners();
+            }
         });
-        if(t<duration+500) requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
-    }
 
-    // --- Fireworks on canvas ---
-    const canvas = document.getElementById('fx');
-    const ctx = canvas.getContext('2d');
-    let W, H; function resize(){ W = canvas.width = innerWidth*devicePixelRatio; H = canvas.height = innerHeight*devicePixelRatio; }
-    addEventListener('resize', resize); resize();
+        // Template selection
+        function addEventListenersForTemplates() {
+            document.querySelectorAll('.template-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const templateName = button.dataset.template;
+                    renderTemplate(templateName);
+                });
+            });
+        }
 
-    const fireworks = [];
-    function spawnFirework(){
-      const x = Math.random()*W*0.8 + W*0.1;
-      const y = Math.random()*H*0.4 + H*0.1;
-      const color = `hsl(${Math.floor(Math.random()*360)},100%,70%)`;
-      const parts = [];
-      for(let i=0;i<80;i++){
-        const angle = (i/80)*Math.PI*2; const speed = (Math.random()*2+1)*(W/1200);
-        parts.push({x, y, vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed, life: 60+Math.random()*20, color});
-      }
-      fireworks.push({parts});
-    }
+        addEventListenersForTemplates();
 
-    function startFireworks(ms=4000){
-      const until = performance.now()+ms;
-      const timer = setInterval(spawnFirework, 350);
-      setTimeout(()=>clearInterval(timer), ms);
-    }
+        // AI generation function
+        generateButton.addEventListener('click', async () => {
+            const userInput = aiInput.value;
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const buttonTextSpan = document.getElementById('generate-text-span');
 
-    function tick(){
-      ctx.clearRect(0,0,W,H);
-      fireworks.forEach(fw=>{
-        fw.parts.forEach(p=>{
-          p.x += p.vx; p.y += p.vy; p.vy += 0.02*devicePixelRatio; p.life -= 1;
-          ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(1, p.life/20), 0, Math.PI*2);
-          ctx.fillStyle = p.color; ctx.fill();
+            if (!userInput.trim()) {
+                alert('الرجاء إدخال معلوماتك لتوليد السيرة الذاتية.');
+                return;
+            }
+
+            buttonTextSpan.classList.add('hidden');
+            loadingSpinner.classList.remove('hidden');
+
+            const prompt = `
+            بناءً على المعلومات التالية، قم بإنشاء بيانات منظمة للسيرة الذاتية بتنسيق JSON.
+            - الاسم الكامل (name)
+            - المسمى الوظيفي (title)
+            - نبذة عن الملف الشخصي (profile)
+            - قائمة بالمهارات (skills - array of strings)
+            - قائمة بالخبرات المهنية (experience - array of objects {title, company, date, description})
+            - قائمة بالتعليم (education - array of objects {degree, university, date, description})
+            - رقم الهاتف (phone)
+            - البريد الإلكتروني (email)
+            - الموقع (location)
+            - اللغات (languages - array of strings)
+            - الاهتمامات (interests - array of strings)
+            - تاريخ الميلاد (dateOfBirth - string)
+
+            المعلومات: "${userInput}"
+
+            التزم فقط بتنسيق JSON ولا تكتب أي نص آخر. تأكد من أن كل عنصر في القائمة يتوافق مع التنسيق المطلوب. إذا لم تجد معلومات معينة، اجعل القيمة فارغة.
+            `;
+              
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            "name": { "type": "STRING" },
+                            "title": { "type": "STRING" },
+                            "profile": { "type": "STRING" },
+                            "phone": { "type": "STRING" },
+                            "email": { "type": "STRING" },
+                            "location": { "type": "STRING" },
+                            "dateOfBirth": { "type": "STRING" },
+                            "skills": {
+                                "type": "ARRAY",
+                                "items": { "type": "STRING" }
+                            },
+                            "experience": {
+                                "type": "ARRAY",
+                                "items": {
+                                    "type": "OBJECT",
+                                    "properties": {
+                                        "title": { "type": "STRING" },
+                                        "company": { "type": "STRING" },
+                                        "date": { "type": "STRING" },
+                                        "description": { "type": "STRING" }
+                                    }
+                                }
+                            },
+                            "education": {
+                                "type": "ARRAY",
+                                "items": {
+                                    "type": "OBJECT",
+                                    "properties": {
+                                        "degree": { "type": "STRING" },
+                                        "university": { "type": "STRING" },
+                                        "date": { "type": "STRING" },
+                                        "description": { "type": "STRING" }
+                                    }
+                                }
+                            },
+                            "languages": {
+                                "type": "ARRAY",
+                                "items": { "type": "STRING" }
+                            },
+                            "interests": {
+                                "type": "ARRAY",
+                                "items": { "type": "STRING" }
+                            }
+                        }
+                    }
+                }
+            };
+              
+            try {
+                let response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                
+                const result = await response.json();
+                const jsonText = result.candidates[0].content.parts[0].text;
+                cvData = JSON.parse(jsonText);
+                  
+                displayParsedData(cvData);
+                parsedOutputSection.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('AI generation failed:', error);
+                alert('حدث خطأ أثناء التوليد. يرجى التأكد من أن مفتاح الـ API صحيح وأن معلوماتك واضحة والمحاولة مرة أخرى.');
+            } finally {
+                buttonTextSpan.classList.remove('hidden');
+                loadingSpinner.classList.add('hidden');
+            }
         });
-        fw.parts = fw.parts.filter(p=>p.life>0);
-      });
-      for(let i=fireworks.length-1; i>=0; i--){ if(fireworks[i].parts.length===0) fireworks.splice(i,1); }
-      requestAnimationFrame(tick);
-    }
-    tick();
 
-    // Accessibility: keyboard trigger
-    document.addEventListener('keydown', e=>{ if((e.key==='Enter'||e.key===' ')&&!opened) revealGift(); });
-  </script></body>
-          </html>
+        // Function to display parsed data in a readable format
+        function displayParsedData(data) {
+            let htmlOutput = `
+                <p class="font-bold">الاسم: <span class="font-normal">${data.name || 'غير متوفر'}</span></p>
+                <p class="font-bold">المسمى الوظيفي: <span class="font-normal">${data.title || 'غير متوفر'}</span></p>
+                <p class="font-bold">نبذة شخصية: <span class="font-normal">${data.profile || 'غير متوفر'}</span></p>
+                <p class="font-bold">المهارات: <span class="font-normal">${data.skills.join(', ') || 'غير متوفر'}</span></p>
+                <p class="font-bold">اللغات: <span class="font-normal">${data.languages.join(', ') || 'غير متوفر'}</span></p>
+                <p class="font-bold">تاريخ الميلاد: <span class="font-normal">${data.dateOfBirth || 'غير متوفر'}</span></p>
+                <p class="font-bold">الخبرة: <span class="font-normal">${data.experience.map(exp => `${exp.title} (${exp.company})`).join('، ') || 'غير متوفر'}</span></p>
+                <p class="font-bold">التعليم: <span class="font-normal">${data.education.map(edu => `${edu.degree} (${edu.university})`).join('، ') || 'غير متوفر'}</span></p>
+            `;
+            parsedOutputDiv.innerHTML = htmlOutput;
+        }
+
+        // Function to populate the current template with data
+        function applyDataToTemplate() {
+            if (!cvData) return;
+
+            const nameEl = document.getElementById('user-name');
+            if (nameEl) nameEl.textContent = cvData.name || nameEl.dataset.placeholder;
+              
+            const titleEl = document.getElementById('user-title');
+            if (titleEl) titleEl.textContent = cvData.title || titleEl.dataset.placeholder;
+
+            const profileEl = document.getElementById('user-profile');
+            if (profileEl) profileEl.textContent = cvData.profile || profileEl.dataset.placeholder;
+
+            const phoneEl = document.getElementById('user-phone');
+            if (phoneEl) phoneEl.textContent = `الهاتف: ${cvData.phone}` || phoneEl.dataset.placeholder;
+
+            const emailEl = document.getElementById('user-email');
+            if (emailEl) emailEl.textContent = `البريد الإلكتروني: ${cvData.email}` || emailEl.dataset.placeholder;
+
+            const locationEl = document.getElementById('user-location');
+            if (locationEl) locationEl.textContent = `الموقع: ${cvData.location}` || locationEl.dataset.placeholder;
+
+            const dobEl = document.getElementById('user-dob');
+            if (dobEl) dobEl.textContent = `تاريخ الميلاد: ${cvData.dateOfBirth}` || dobEl.dataset.placeholder;
+              
+            const skillsList = document.getElementById('user-skills');
+            if (skillsList && cvData.skills) {
+                skillsList.innerHTML = '';
+                cvData.skills.forEach(skill => {
+                    const li = document.createElement('li');
+                    li.textContent = skill;
+                    li.classList.add('editable');
+                    skillsList.appendChild(li);
+                });
+            }
+
+            const languagesList = document.getElementById('user-languages');
+            if (languagesList && cvData.languages) {
+                 languagesList.innerHTML = '';
+                 cvData.languages.forEach(lang => {
+                     const li = document.createElement('li');
+                     li.textContent = lang;
+                     li.classList.add('editable');
+                     languagesList.appendChild(li);
+                 });
+            }
+
+            const interestsList = document.getElementById('user-interests');
+            if (interestsList && cvData.interests) {
+                 interestsList.innerHTML = '';
+                 cvData.interests.forEach(interest => {
+                     const li = document.createElement('li');
+                     li.textContent = interest;
+                     li.classList.add('editable');
+                     interestsList.appendChild(li);
+                 });
+            }
+              
+            const experienceDiv = document.getElementById('user-experience');
+            if (experienceDiv && cvData.experience) {
+                experienceDiv.innerHTML = '';
+                cvData.experience.forEach(exp => {
+                    const div = document.createElement('div');
+                    div.className = 'relative editable';
+                    div.innerHTML = `
+                        <h3 class="text-lg font-semibold editable" data-placeholder="مسمى وظيفي">${exp.title || ''}</h3>
+                        <p class="text-gray-600 italic text-sm editable" data-placeholder="الشركة، المدينة | التاريخ">${exp.company || ''} | ${exp.date || ''}</p>
+                        <p class="text-sm text-gray-700 mt-2 editable" data-placeholder="وصف المهام والمسؤوليات">${exp.description || ''}</p>
+                    `;
+                    experienceDiv.appendChild(div);
+                });
+            }
+
+            const educationDiv = document.getElementById('user-education');
+            if (educationDiv && cvData.education) {
+                educationDiv.innerHTML = '';
+                cvData.education.forEach(edu => {
+                    const div = document.createElement('div');
+                    div.className = 'relative editable';
+                    div.innerHTML = `
+                        <h3 class="text-lg font-semibold editable" data-placeholder="الدرجة العلمية">${edu.degree || ''}</h3>
+                        <p class="text-gray-600 italic text-sm editable" data-placeholder="الجامعة، المدينة | التاريخ">${edu.university || ''} | ${edu.date || ''}</p>
+                        <p class="text-sm text-gray-700 mt-2 editable" data-placeholder="الشهادات والإنجازات">${edu.description || ''}</p>
+                    `;
+                    educationDiv.appendChild(div);
+                });
+            }
+
+            addEventListeners();
+        }
+
+        // Apply generated data to the current CV template
+        applyToCvButton.addEventListener('click', () => {
+            if (!cvData) {
+                alert('الرجاء توليد البيانات أولاً.');
+                return;
+            }
+            applyDataToTemplate();
+        });
+
+        // Edit parsed data
+        editParsedDataButton.addEventListener('click', () => {
+            if (!cvData) return;
+            const jsonString = JSON.stringify(cvData, null, 2);
+            const newJsonString = prompt("يمكنك تعديل البيانات هنا:", jsonString);
+            if (newJsonString !== null) {
+                try {
+                    cvData = JSON.parse(newJsonString);
+                    displayParsedData(cvData);
+                } catch (e) {
+                    alert("تنسيق JSON غير صحيح. يرجى المحاولة مرة أخرى.");
+                }
+            }
+        });
+
+        // Handle adding a new section
+        addSectionButton.addEventListener('click', () => {
+            addSectionModal.classList.remove('hidden');
+        });
+
+        cancelAddSectionButton.addEventListener('click', () => {
+            addSectionModal.classList.add('hidden');
+        });
+
+        confirmAddSectionButton.addEventListener('click', () => {
+            const title = document.getElementById('new-section-title').value;
+            const content = document.getElementById('new-section-content').value;
+            if (title.trim() === "" || content.trim() === "") {
+                alert("الرجاء إدخال عنوان ومحتوى للقسم.");
+                return;
+            }
+
+            const customSectionsContainer = document.getElementById('custom-sections-container');
+            if (customSectionsContainer) {
+                const newSection = document.createElement('div');
+                newSection.classList.add('space-y-4');
+                newSection.innerHTML = `
+                    <div>
+                        <h2 class="text-2xl font-bold border-b-2 border-gray-300 pb-2 mb-4 editable">${title}</h2>
+                        <p class="text-gray-700 leading-relaxed text-sm editable">${content}</p>
+                    </div>
+                `;
+                customSectionsContainer.appendChild(newSection);
+                addEventListeners();
+                addSectionModal.classList.add('hidden');
+                document.getElementById('new-section-title').value = '';
+                document.getElementById('new-section-content').value = '';
+            } else {
+                alert("القالب الحالي لا يدعم إضافة أقسام جديدة.");
+            }
+        });
+
+        // Handle AI template generation
+        generateTemplateButton.addEventListener('click', async () => {
+            const templateDescription = aiTemplateInput.value;
+            if (!templateDescription.trim()) {
+                alert('الرجاء وصف القالب الذي ترغب في إنشائه.');
+                return;
+            }
+
+            generateTemplateText.classList.add('hidden');
+            loadingTemplateSpinner.classList.remove('hidden');
+
+            const templatePrompt = `
+            بناءً على الوصف التالي، قم بإنشاء قالب سيرة ذاتية كامل في كود HTML و Tailwind CSS.
+            تأكد من أن القالب يستخدم الأيقونات (على شكل SVG أو Font Awesome) للاتصال مثل الهاتف والبريد الإلكتروني، وأن كل جزء من المعلومات قابل للتحرير باستخدام فئة "editable".
+            يجب أن تكون العناصر الأساسية موجودة:
+            - الاسم (id="user-name")
+            - المسمى الوظيفي (id="user-title")
+            - الصورة الشخصية (id="profile-image")
+            - معلومات الاتصال (id="user-phone", id="user-email", id="user-location", id="user-dob")
+            - الملف الشخصي (id="user-profile")
+            - الخبرة المهنية (id="user-experience")
+            - التعليم (id="user-education")
+            - المهارات (id="user-skills")
+            - اللغات (id="user-languages")
+            - الاهتمامات (id="user-interests")
+            - حاوية للأقسام المخصصة (id="custom-sections-container")
+
+            استخدم تنسيقًا جميلًا واحترافيًا.
+            الوصف: "${templateDescription}"
+
+            أنتج كود HTML/CSS فقط، ولا تكتب أي نص آخر.
+            `;
+
+            const templatePayload = {
+                contents: [{ parts: [{ text: templatePrompt }] }],
+                generationConfig: {
+                    responseMimeType: "text/plain",
+                }
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(templatePayload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const htmlCode = result.candidates[0].content.parts[0].text;
+                
+                const newTemplateName = `template-ai-${Date.now()}`;
+                templates[newTemplateName] = htmlCode;
+                
+                const templateList = document.getElementById('template-buttons-container');
+                const newButton = document.createElement('button');
+                newButton.classList.add('template-button', 'bg-blue-300', 'text-gray-800', 'py-1', 'px-2', 'rounded-lg', 'text-sm');
+                newButton.dataset.template = newTemplateName;
+                newButton.textContent = 'قالب جديد (AI)';
+                templateList.appendChild(newButton);
+                
+                addEventListenersForTemplates();
+                renderTemplate(newTemplateName);
+
+                alert('تم إنشاء القالب الجديد بنجاح!');
+
+            } catch (error) {
+                console.error('AI template generation failed:', error);
+                alert('حدث خطأ أثناء توليد القالب. يرجى المحاولة مرة أخرى.');
+            } finally {
+                generateTemplateText.classList.remove('hidden');
+                loadingTemplateSpinner.classList.add('hidden');
+            }
+        });
+
+        // Toggle control panel visibility on mobile
+        if (isMobile) {
+            controlPanel.style.transform = 'translateX(120%)';
+            togglePanelButton.addEventListener('click', () => {
+                if (controlPanel.style.transform === 'translateX(120%)') {
+                    controlPanel.style.transform = 'translateX(0)';
+                } else {
+                    controlPanel.style.transform = 'translateX(120%)';
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
